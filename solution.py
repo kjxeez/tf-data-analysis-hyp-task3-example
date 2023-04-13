@@ -7,9 +7,9 @@ chat_id = 584664949 # Ваш chat ID, не меняйте название пе�
 def solution(x: np.array) -> bool:
     alpha = 0.04
     mu = 500
-    N = len(data)
-    X = np.mean(data)
-    s = np.std(data)
+    N = len(x)
+    X = np.mean(x)
+    s = np.std(x)
     T = (X - mu) / (s / np.sqrt(N))
     t_crit = stats.t.ppf(1 - alpha, N - 1)
     return T > t_crit
