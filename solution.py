@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
-from statsmodels.stats.weightstats import ztest
+from scipy import stats
 
 chat_id = 584664949 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array) -> bool:
     alpha = 0.04
-    p_val = ztest(x, value=500, alternative='smaller')[1]  # larger
-
-    return p_val < alpha
+    mu = 500
+    X = np.mean(data)
+    s = np.std(data)
+    T = (X - mu) / (s / np.sqrt(N))
+    t_crit = stats.t.ppf(1 - alpha, N - 1)
+    return T > t_crit
